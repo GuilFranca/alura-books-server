@@ -1,9 +1,13 @@
+// Import da função de manipulação de arquivos
+const fs = require("fs");
+
 // Lógica do get da rota de livros
 function getLivros(req, res) {
     try {
-        throw new Error("teste")
+        // podemos deixar somente livros.json
+        const livros = JSON.parse(fs.readFileSync("livros.json"));
         // Caso dê certo já retorna 200 por padrão
-        res.send("Retorno de todos os livros");
+        res.send(livros);
     } catch (error) {
         // Definindo erro
         res.status(500);
