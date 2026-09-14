@@ -1,11 +1,10 @@
-// Import da função de manipulação de arquivos
-const fs = require("fs");
+const { getTodosLivros } = require("../servicos/livro");
 
 // Lógica do get da rota de livros
 function getLivros(req, res) {
     try {
-        // podemos deixar somente livros.json
-        const livros = JSON.parse(fs.readFileSync("livros.json"));
+        // chama o serviço de mostrar todos os livros
+        const livros = getTodosLivros();
         // Caso dê certo já retorna 200 por padrão
         res.send(livros);
     } catch (error) {
