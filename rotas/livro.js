@@ -1,12 +1,11 @@
 // Importar o Router para criar rotas
 const { Router } = require("express");
+const { getLivros } = require("../controladores/livro");
 
 // Instância do Router
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.send("Retorno de todos os livros");
-});
+router.get("/", getLivros);
 
 router.post("/", (req, res) => {
     res.send("Você fez uma requisição POST");
