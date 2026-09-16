@@ -6,7 +6,14 @@ function getTodosLivros() {
     return JSON.parse(fs.readFileSync("livros.json"));
 }
 
+// Service para pegar o livro pelo id
+function getLivroPorId(id) {
+    const livros = JSON.parse(fs.readFileSync("livros.json"));
+    return livros.filter( livro => livro.id === id);
+}
+
 // Exporta as funções de serviços
 module.exports = {
     getTodosLivros,
+    getLivroPorId
 }

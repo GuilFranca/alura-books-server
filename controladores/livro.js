@@ -1,4 +1,4 @@
-const { getTodosLivros } = require("../servicos/livro");
+const { getTodosLivros, getLivroPorId } = require("../servicos/livro");
 
 // Lógica do get da rota de livros
 function getLivros(req, res) {
@@ -10,11 +10,25 @@ function getLivros(req, res) {
     } catch (error) {
         // Definindo erro
         res.status(500);
-        res.send(error.message)
+        res.send(error.message);
+    }
+}
+
+// Lógica do get para Id's especificos
+function getLivro(req, res) {
+    try {
+        // Parâmetros enviados no caso sendo o :id
+        const id = req.params.id;
+        const livro = getLivroPorId(id);
+        res.send(livro);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
     }
 }
 
 // Export das lógicas das rotas
 module.exports = {
     getLivros,
+    getLivro
 }
