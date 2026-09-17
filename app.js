@@ -4,6 +4,8 @@ const express = require("express");
 const rotaLivro = require("./rotas/livro")
 // Nossa aplicação 
 const app = express();
+// Permite que nossa aplicação possa receber requisições JSON
+app.use(express.json())
 // Porta da aplicação -> back: 8000 / front: 3000
 const port = 8000;
 

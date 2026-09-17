@@ -1,4 +1,4 @@
-const { getTodosLivros, getLivroPorId } = require("../servicos/livro");
+const { getTodosLivros, getLivroPorId, insereLivro } = require("../servicos/livro");
 
 // Lógica do get da rota de livros
 function getLivros(req, res) {
@@ -27,8 +27,22 @@ function getLivro(req, res) {
     }
 }
 
+function postLivro(req, res) {
+    try {
+        const livroNovo = req.body;
+        // Função do serviço para inserção de livros novos
+        insereLivro(livroNovo);
+        res.status(201);
+        res.send("Novo livro criado com sucesso");
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 // Export das lógicas das rotas
 module.exports = {
     getLivros,
-    getLivro
+    getLivro,
+    postLivro
 }

@@ -10,5 +10,9 @@
     {
         "id": "3",
         "nome": "Livro inserido"
+    },
+    {
+        "id": "8",
+        "nome": "Livro inserido pelo post"
     }
 ]
